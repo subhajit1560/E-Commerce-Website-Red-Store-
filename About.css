@@ -1,0 +1,160 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a; /* Dark background for cyberpunk theme */
+  color: #e0e0e0; /* Light text for contrast */
+}
+
+header {
+  background: linear-gradient(135deg, #ff0033, #990000); /* Red gradient */
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(255, 0, 51, 0.5); /* Glow effect */
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #ff0033; /* Red accent */
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
+
+.highlight {
+  color: #ff0033; /* Red accent */
+  font-weight: bold;
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px;
+  background-color: #1a1a1a; /* Dark sections */
+  box-shadow: 0 4px 15px rgba(255, 0, 51, 0.3); /* Glow effect */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #e0e0e0;
+}
+
+/* Profile Picture Animation */
+.profile-picture {
+  margin: 30px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 0, 51, 0.5);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-picture.zoom-in.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.founder-name {
+  font-size: 1.2rem;
+  color: #ff0033;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in.active {
+  opacity: 1;
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.slide-in-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.slide-in-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #ff0033, #990000); /* Red gradient */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 -4px 15px rgba(255, 0, 51, 0.5); /* Glow effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+  }
+}
