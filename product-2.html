@@ -5,30 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRX Shoes - My Shopping</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium-nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="common.js" defer></script>
+    <script src="premium-nav.js" defer></script>
+    <script src="cart-manager.js" defer></script>
 </head>
 <body>
 
-    <div class="header">
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                    <a href="index.html"><img src="images/logo.png" width="125px"></a>
+    <!-- Premium Header -->
+    <header class="premium-header">
+        <nav class="premium-nav">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="images/logo.png" width="125px" alt="My Shopping Logo" class="logo-image">
+                    </a>
                 </div>
-                <nav>
-                    <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="product.html">Products</a></li>
-                        <li><a href="About.html">About</a></li>
-                        <li><a href="account.html">Account</a></li>
-                    </ul>
-                </nav>
-                <a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
-                <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
             </div>
-        </div>
-    </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="product.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="account-new.html" class="nav-link"><i class="fas fa-user"></i> Account</a></li>
+                <li><a href="cart.html" class="nav-link cart-nav-btn" id="cartNavBtn">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-counter" id="cartCounter">0</span>
+                </a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <div class="small-container single-product">
         <div class="row">
@@ -38,7 +57,7 @@
             <div class="col-2">
                 <p>Home / Shoes</p>
                 <h1>HRX Shoes</h1>
-                <h4>₹ 1749.00</h4>
+                <h4 class="price">₹ 1749.00</h4>
                 <select>
                     <option>Select Size</option>
                     <option>6</option>
@@ -47,8 +66,8 @@
                     <option>9</option>
                     <option>10</option>
                 </select>
-                <input type="number" value="1">
-                <a href="" class="btn">Add to Cart</a>
+                                    <input type="number" value="1" min="1" max="99">
+                <button class="btn add-to-cart-btn">Add to Cart</button>
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
                 <p>These HRX shoes are designed for comfort and style. Perfect for workouts or casual wear, they provide excellent support and durability.</p>

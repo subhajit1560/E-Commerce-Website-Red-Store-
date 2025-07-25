@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products - Redstore</title>
+    <title>Account - My Shopping</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="common.js" defer></script>
 </head>
 <body>
 
@@ -20,37 +21,142 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="product.html">Products</a></li>
                     <li><a href="About.html">About</a></li>
-                    <li><a href="account.html">Account</a></li>
+                    <li><a href="account-new.html">Account</a></li>
                 </ul>
             </nav>
             <a href="cart.html"><img src="images/cart.png" width="30px" height="30px" alt="Cart"></a>
-            <img src="images/menu.png" class="menu-icon" alt="Menu" id="menu-icon">
+            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" alt="Menu" id="menu-icon">
         </div>
 
         <div class="account-page">
             <div class="container">
                 <div class="row">
-                    <div class="col-2">
-                        <img src="images/image1.png" width="100%" alt="Account Image">
+                    <div class="col-2 account-image">
+                        <div class="welcome-content">
+                            <h2>Welcome to <span class="brand-name">My Shopping</span></h2>
+                            <p>Join thousands of happy customers and discover amazing products at great prices!</p>
+                            <div class="features">
+                                <div class="feature-item">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Easy Shopping</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-truck"></i>
+                                    <span>Fast Delivery</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fa fa-shield"></i>
+                                    <span>Secure Payment</span>
+                                </div>
+                            </div>
+                        </div>
+                        <img src="images/image1.png" width="100%" alt="Account Image" class="account-bg-img">
                     </div>
                     <div class="col-2">
                         <div class="form-container">
-                            <div class="form-btn">
-                                <span id="login-btn">Login</span>
-                                <span id="register-btn">Register</span>
-                                <hr id="Indicator">
+                            <div class="form-header">
+                                <h3>Get Started</h3>
+                                <p>Create your account or sign in to continue</p>
                             </div>
-                            <form id="LoginForm" onsubmit="return validateLogin()">
-                                <input type="text" placeholder="Username" required>
-                                <input type="password" placeholder="Password" required>
-                                <button type="submit" class="btn">Login</button>
-                                <a href="">Forgot password</a>
+                            <div class="form-tabs">
+                                <button class="tab-btn active" id="login-btn" data-tab="login">
+                                    <i class="fa fa-sign-in"></i>
+                                    <span>Sign In</span>
+                                </button>
+                                <button class="tab-btn" id="register-btn" data-tab="register">
+                                    <i class="fa fa-user-plus"></i>
+                                    <span>Sign Up</span>
+                                </button>
+                                <div class="tab-indicator" id="Indicator"></div>
+                            </div>
+                            
+                            <form id="LoginForm" class="auth-form active" onsubmit="return validateLogin()">
+                                <div class="input-group">
+                                    <i class="fa fa-user input-icon"></i>
+                                    <input type="text" placeholder="Username or Email" required>
+                                    <label>Username or Email</label>
+                                </div>
+                                <div class="input-group">
+                                    <i class="fa fa-lock input-icon"></i>
+                                    <input type="password" placeholder="Password" required>
+                                    <label>Password</label>
+                                    <i class="fa fa-eye password-toggle" onclick="togglePassword(this)"></i>
+                                </div>
+                                <div class="form-options">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="remember">
+                                        <span class="checkmark"></span>
+                                        Remember me
+                                    </label>
+                                    <a href="#" class="forgot-link">Forgot Password?</a>
+                                </div>
+                                <button type="submit" class="btn auth-btn">
+                                    <i class="fa fa-sign-in"></i>
+                                    Sign In
+                                </button>
+                                <div class="social-login">
+                                    <p>Or continue with</p>
+                                    <div class="social-buttons">
+                                        <button type="button" class="social-btn google">
+                                            <i class="fa fa-google"></i>
+                                        </button>
+                                        <button type="button" class="social-btn facebook">
+                                            <i class="fa fa-facebook"></i>
+                                        </button>
+                                        <button type="button" class="social-btn twitter">
+                                            <i class="fa fa-twitter"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </form>
-                            <form id="RegForm" onsubmit="return validateRegister()">
-                                <input type="text" placeholder="Username" required>
-                                <input type="email" placeholder="Email" required>
-                                <input type="password" placeholder="Password" required>
-                                <button type="submit" class="btn">Register</button>
+                            
+                            <form id="RegForm" class="auth-form" onsubmit="return validateRegister()">
+                                <div class="input-group">
+                                    <i class="fa fa-user input-icon"></i>
+                                    <input type="text" placeholder="Full Name" required>
+                                    <label>Full Name</label>
+                                </div>
+                                <div class="input-group">
+                                    <i class="fa fa-envelope input-icon"></i>
+                                    <input type="email" placeholder="Email Address" required>
+                                    <label>Email Address</label>
+                                </div>
+                                <div class="input-group">
+                                    <i class="fa fa-lock input-icon"></i>
+                                    <input type="password" placeholder="Password" required>
+                                    <label>Password</label>
+                                    <i class="fa fa-eye password-toggle" onclick="togglePassword(this)"></i>
+                                </div>
+                                <div class="input-group">
+                                    <i class="fa fa-lock input-icon"></i>
+                                    <input type="password" placeholder="Confirm Password" required>
+                                    <label>Confirm Password</label>
+                                </div>
+                                <div class="form-options">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="terms" required>
+                                        <span class="checkmark"></span>
+                                        I agree to the <a href="#">Terms & Conditions</a>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn auth-btn">
+                                    <i class="fa fa-user-plus"></i>
+                                    Create Account
+                                </button>
+                                <div class="social-login">
+                                    <p>Or sign up with</p>
+                                    <div class="social-buttons">
+                                        <button type="button" class="social-btn google">
+                                            <i class="fa fa-google"></i>
+                                        </button>
+                                        <button type="button" class="social-btn facebook">
+                                            <i class="fa fa-facebook"></i>
+                                        </button>
+                                        <button type="button" class="social-btn twitter">
+                                            <i class="fa fa-twitter"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -98,31 +204,248 @@
         </div>
 
         <script>
-            document.getElementById("menu-icon").addEventListener("click", function() {
-                var MenuItems = document.getElementById("MenuItems");
-                MenuItems.style.maxHeight = MenuItems.style.maxHeight === "0px" ? "200px" : "0px";
+            // Simple tab switching without animations
+            document.addEventListener('DOMContentLoaded', function() {
+                // Get form elements
+                const loginBtn = document.getElementById('login-btn');
+                const registerBtn = document.getElementById('register-btn');
+                const loginForm = document.getElementById('LoginForm');
+                const regForm = document.getElementById('RegForm');
+                const indicator = document.getElementById('Indicator');
+                
+                // Check if all elements exist
+                if (!loginBtn || !registerBtn || !loginForm || !regForm || !indicator) {
+                    console.error('Required elements not found');
+                    return;
+                }
+                
+                // Set initial state
+                showLoginForm();
+                
+                // Add event listeners
+                loginBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showLoginForm();
+                });
+                
+                registerBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showRegisterForm();
+                });
+                
+                function showLoginForm() {
+                    // Show login form, hide register form
+                    loginForm.style.display = 'block';
+                    regForm.style.display = 'none';
+                    
+                    // Update button states
+                    loginBtn.classList.add('active');
+                    registerBtn.classList.remove('active');
+                    
+                    // Update indicator
+                    indicator.classList.remove('register');
+                    
+                    // Clear register form
+                    clearForm(regForm);
+                }
+                
+                function showRegisterForm() {
+                    // Show register form, hide login form
+                    regForm.style.display = 'block';
+                    loginForm.style.display = 'none';
+                    
+                    // Update button states
+                    registerBtn.classList.add('active');
+                    loginBtn.classList.remove('active');
+                    
+                    // Update indicator
+                    indicator.classList.add('register');
+                    
+                    // Clear login form
+                    clearForm(loginForm);
+                }
+                
+                function clearForm(form) {
+                    if (!form) return;
+                    
+                    // Clear all inputs
+                    const inputs = form.querySelectorAll('input');
+                    inputs.forEach(input => {
+                        if (input.type === 'checkbox' || input.type === 'radio') {
+                            input.checked = false;
+                        } else {
+                            input.value = '';
+                        }
+                        
+                        // Remove focused class from input groups
+                        const inputGroup = input.closest('.input-group');
+                        if (inputGroup) {
+                            inputGroup.classList.remove('focused');
+                        }
+                        
+                        // Reset input styling
+                        input.style.borderColor = '#e1e5e9';
+                    });
+                    
+                    // Remove error messages
+                    const errors = form.querySelectorAll('.error-message');
+                    errors.forEach(error => error.remove());
+                }
+                
+                // Input label animations
+                const allInputs = document.querySelectorAll('.input-group input');
+                allInputs.forEach(input => {
+                    input.addEventListener('focus', function() {
+                        this.closest('.input-group').classList.add('focused');
+                    });
+                    
+                    input.addEventListener('blur', function() {
+                        if (this.value.trim() === '') {
+                            this.closest('.input-group').classList.remove('focused');
+                        }
+                    });
+                    
+                    input.addEventListener('input', function() {
+                        if (this.value.trim() !== '') {
+                            this.closest('.input-group').classList.add('focused');
+                        } else {
+                            this.closest('.input-group').classList.remove('focused');
+                        }
+                    });
+                    
+                    // Check initial state
+                    if (input.value.trim() !== '') {
+                        input.closest('.input-group').classList.add('focused');
+                    }
+                });
+                
+                // Social button functionality
+                const socialBtns = document.querySelectorAll('.social-btn');
+                socialBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const provider = this.classList.contains('google') ? 'Google' : 
+                                       this.classList.contains('facebook') ? 'Facebook' : 'Twitter';
+                        alert(`${provider} login would be implemented here`);
+                    });
+                });
             });
-
-            document.getElementById("login-btn").addEventListener("click", function() {
-                document.getElementById("RegForm").style.transform = "translateX(300px)";
-                document.getElementById("LoginForm").style.transform = "translateX(300px)";
-                document.getElementById("Indicator").style.transform = "translateX(0px)";
-            });
-
-            document.getElementById("register-btn").addEventListener("click", function() {
-                document.getElementById("RegForm").style.transform = "translateX(0px)";
-                document.getElementById("LoginForm").style.transform = "translateX(0px)";
-                document.getElementById("Indicator").style.transform = "translateX(100px)";
-            });
-
-            function validateLogin() {
-                // Add validation logic for login
-                return true; // Placeholder
+            
+            // Password toggle function
+            function togglePassword(icon) {
+                const input = icon.previousElementSibling.previousElementSibling;
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    input.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
             }
-
+            
+            // Login validation
+            function validateLogin() {
+                const form = document.getElementById('LoginForm');
+                const username = form.querySelector('input[type="text"]').value;
+                const password = form.querySelector('input[type="password"]').value;
+                
+                clearFormErrors(form);
+                
+                let valid = true;
+                
+                if (username.trim() === '') {
+                    showFieldError(form.querySelector('input[type="text"]'), 'Username is required');
+                    valid = false;
+                }
+                
+                if (password.length < 6) {
+                    showFieldError(form.querySelector('input[type="password"]'), 'Password must be at least 6 characters');
+                    valid = false;
+                }
+                
+                if (valid) {
+                    alert('Login successful! (Demo)');
+                    // In real app: window.location.href = 'index.html';
+                }
+                
+                return false;
+            }
+            
+            // Register validation
             function validateRegister() {
-                // Add validation logic for registration
-                return true; // Placeholder
+                const form = document.getElementById('RegForm');
+                const inputs = form.querySelectorAll('input:not([type="checkbox"])');
+                const fullName = inputs[0].value;
+                const email = inputs[1].value;
+                const password = inputs[2].value;
+                const confirmPassword = inputs[3].value;
+                const termsAccepted = form.querySelector('#terms').checked;
+                
+                clearFormErrors(form);
+                
+                let valid = true;
+                
+                if (fullName.trim().length < 2) {
+                    showFieldError(inputs[0], 'Full name must be at least 2 characters');
+                    valid = false;
+                }
+                
+                if (!isValidEmail(email)) {
+                    showFieldError(inputs[1], 'Please enter a valid email');
+                    valid = false;
+                }
+                
+                if (password.length < 6) {
+                    showFieldError(inputs[2], 'Password must be at least 6 characters');
+                    valid = false;
+                }
+                
+                if (password !== confirmPassword) {
+                    showFieldError(inputs[3], 'Passwords do not match');
+                    valid = false;
+                }
+                
+                if (!termsAccepted) {
+                    showFieldError(form.querySelector('#terms').closest('.checkbox-container'), 'You must accept the terms');
+                    valid = false;
+                }
+                
+                if (valid) {
+                    alert('Registration successful! (Demo)');
+                    // Switch back to login
+                    document.getElementById('login-btn').click();
+                }
+                
+                return false;
+            }
+            
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+            
+            function showFieldError(element, message) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.textContent = message;
+                errorDiv.style.cssText = 'color: #dc3545; font-size: 0.8rem; margin-top: 5px; display: block;';
+                
+                if (element.classList.contains('checkbox-container')) {
+                    element.appendChild(errorDiv);
+                } else {
+                    element.parentElement.appendChild(errorDiv);
+                    element.style.borderColor = '#dc3545';
+                }
+            }
+            
+            function clearFormErrors(form) {
+                const errors = form.querySelectorAll('.error-message');
+                errors.forEach(error => error.remove());
+                
+                const inputs = form.querySelectorAll('input');
+                inputs.forEach(input => {
+                    input.style.borderColor = '#e1e5e9';
+                });
             }
         </script>
 

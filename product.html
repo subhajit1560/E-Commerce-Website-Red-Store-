@@ -3,92 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products - Redstore</title>
+    <title>All Products - My Shopping</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium-nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="cart-manager.js" defer></script>
+    <script src="common.js" defer></script>
+    <script src="premium-nav.js" defer></script>
 </head>
 <body>
 
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <img src="images/logo.png" width="125px" alt="Logo">
+    <!-- Premium Header -->
+    <header class="premium-header">
+        <nav class="premium-nav">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="images/logo.png" width="125px" alt="My Shopping Logo" class="logo-image">
+                    </a>
+                </div>
             </div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="product.html">Products</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="account.html">Account</a></li>
-                </ul>
-            </nav>
-            <a href="cart.html"><img src="images/cart.png" width="30px" height="30px" alt="Cart"></a>
-            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" alt="Menu">
-        </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="product.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="account-new.html" class="nav-link"><i class="fas fa-user"></i> Account</a></li>
+                <li><a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="cart-btn" onclick="window.location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" style="display: none;">0</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
 
+    <div class="container">
         <div class="small-container">
             <div class="row row-2">
-                <h2>All Products</h2>
-                <select>
-                    <option>Default Sorting</option>
-                    <option>Sort by price</option>
-                    <option>Sort by popularity</option>
-                    <option>Sort by rating</option>
-                    <option>Sort by sale</option>
-                </select>
+                <h2>All Products <span id="productCount">(12 items)</span></h2>
+                <div class="sort-container">
+                    <label for="sortSelect">Sort by:</label>
+                    <select id="sortSelect">
+                        <option value="default">Default Sorting</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                        <option value="rating">Rating: High to Low</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="row">
-                <div class="col-4">
-                    <a href="product-1.html"><img src="images/product-1.jpg" alt="Red Printed T-shirt"></a>
-                    <a href="product-1.html"><h4>Red Printed T-shirt</h4></a>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>₹ 549.00</p>
-                </div>
-                <div class="col-4">
-                    <a href="product-2.html"><img src="images/product-2.jpg" alt="Blue Denim Jacket"></a>
-                    <a href="product-2.html"><h4>Blue Denim Jacket</h4></a>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>₹ 1299.00</p>
-                </div>
-                <div class="col-4">
-                    <a href="product-3.html"><img src="images/product-3.jpg" alt="Black Sneakers"></a>
-                    <a href="product-3.html"><h4>Black Sneakers</h4></a>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>₹ 799.00</p>
-                </div>
-                <div class="col-4">
-                    <a href="product-4.html"><img src="images/product-4.jpg" alt="White Sports Shoes"></a>
-                    <a href="product-4.html"><h4>White Sports Shoes</h4></a>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>₹ 899.00</p>
-                </div>
-                <!-- Additional product entries can be added here -->
+            <div class="row" id="productContainer">
+                <!-- Products will be dynamically loaded here -->
             </div>
             <div class="page-btn">
                 <span>1</span>
@@ -104,51 +83,310 @@
                 <div class="row">
                     <div class="footer-col-1">
                         <h3>Download Our App</h3>
-                        <p>Download App for Android and iOS mobile phone.</p>
+                        <p>Get the best shopping experience on your mobile device. Download our app now!</p>
                         <div class="app-logo">
-                            <img src="images/play-store.png" alt="Play Store">
-                            <img src="images/app-store.png" alt="App Store">
+                            <img src="images/play-store.png" alt="Download from Google Play Store">
+                            <img src="images/app-store.png" alt="Download from Apple App Store">
                         </div>
                     </div>
                     <div class="footer-col-2">
-                        <img src="images/logo-white.png" alt="Logo">
-                        <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+                        <h3>About My Shopping</h3>
+                        <img src="images/logo-white.png" alt="My Shopping Logo">
+                        <p>Your trusted partner for quality products at unbeatable prices. We're committed to making premium shopping accessible to everyone, everywhere.</p>
                     </div>
                     <div class="footer-col-3">
-                        <h3>Useful Links</h3>
+                        <h3>Quick Links</h3>
                         <ul>
-                            <li>Coupons</li>
-                            <li>Blog Post</li>
+                            <li>Special Offers</li>
+                            <li>New Arrivals</li>
                             <li>Return Policy</li>
+                            <li>Track Your Order</li>
+                            <li>Customer Support</li>
                             <li>Join Affiliate</li>
                         </ul>
                     </div>
                     <div class="footer-col-4">
-                        <h3>Follow Us</h3>
+                        <h3>Connect With Us</h3>
                         <ul>
                             <li>Facebook</li>
                             <li>Twitter</li>
                             <li>Instagram</li>
                             <li>YouTube</li>
+                            <li>LinkedIn</li>
+                            <li>TikTok</li>
                         </ul>
                     </div>
                 </div>
                 <hr>
-                <p class="Copyright">Copyright 2022</p>
+                <div class="Copyright">
+                    Copyright 2024 My Shopping. All rights reserved.
+                </div>
             </div>
         </div>
 
         <script>
-            var MenuItems = document.getElementById("MenuItems");
-            MenuItems.style.maxHeight = "0px";
-
-            function menutoggle() {
-                if (MenuItems.style.maxHeight == "0px") {
-                    MenuItems.style.maxHeight = "200px";
-                } else {
-                    MenuItems.style.maxHeight = "0px";
+            // Product data
+            const products = [
+                {
+                    id: 1,
+                    name: "Red Printed T-shirt",
+                    price: 549.00,
+                    rating: 4,
+                    image: "images/product-1.jpg",
+                    link: "product-1.html",
+                    originalOrder: 1
+                },
+                {
+                    id: 2,
+                    name: "HRX Shoes",
+                    price: 1749.00,
+                    rating: 3.5,
+                    image: "images/product-2.jpg",
+                    link: "product-2.html",
+                    originalOrder: 2
+                },
+                {
+                    id: 3,
+                    name: "Solid Men Multicolor Track Pant",
+                    price: 399.00,
+                    rating: 4.5,
+                    image: "images/product-3.jpg",
+                    link: "product-3.html",
+                    originalOrder: 3
+                },
+                {
+                    id: 4,
+                    name: "PUMA Polo Neck Black T-shirt",
+                    price: 863.00,
+                    rating: 4,
+                    image: "images/product-4.jpg",
+                    link: "product-4.html",
+                    originalOrder: 4
+                },
+                {
+                    id: 5,
+                    name: "Nike Sports Shoes",
+                    price: 2499.00,
+                    rating: 5,
+                    image: "images/product-5.jpg",
+                    link: "product-1.html",
+                    originalOrder: 5
+                },
+                {
+                    id: 6,
+                    name: "Adidas Running Shoes",
+                    price: 1899.00,
+                    rating: 4.5,
+                    image: "images/product-6.jpg",
+                    link: "product-2.html",
+                    originalOrder: 6
+                },
+                {
+                    id: 7,
+                    name: "Casual Denim Shirt",
+                    price: 799.00,
+                    rating: 3.5,
+                    image: "images/product-7.jpg",
+                    link: "product-3.html",
+                    originalOrder: 7
+                },
+                {
+                    id: 8,
+                    name: "Leather Wallet",
+                    price: 1299.00,
+                    rating: 4,
+                    image: "images/product-8.jpg",
+                    link: "product-4.html",
+                    originalOrder: 8
+                },
+                {
+                    id: 9,
+                    name: "Watch Analog",
+                    price: 3499.00,
+                    rating: 4.5,
+                    image: "images/product-9.jpg",
+                    link: "product-1.html",
+                    originalOrder: 9
+                },
+                {
+                    id: 10,
+                    name: "Black Formal Shoes",
+                    price: 2199.00,
+                    rating: 4,
+                    image: "images/product-10.jpg",
+                    link: "product-2.html",
+                    originalOrder: 10
+                },
+                {
+                    id: 11,
+                    name: "Canvas Shoes",
+                    price: 999.00,
+                    rating: 3.5,
+                    image: "images/product-11.jpg",
+                    link: "product-3.html",
+                    originalOrder: 11
+                },
+                {
+                    id: 12,
+                    name: "Sports T-shirt",
+                    price: 649.00,
+                    rating: 4,
+                    image: "images/product-12.jpg",
+                    link: "product-4.html",
+                    originalOrder: 12
                 }
+            ];
+
+            // Function to create star rating HTML
+            function createStarRating(rating) {
+                let stars = '';
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = rating % 1 !== 0;
+                
+                for (let i = 0; i < fullStars; i++) {
+                    stars += '<i class="fa fa-star"></i>';
+                }
+                
+                if (hasHalfStar) {
+                    stars += '<i class="fa fa-star-half-o"></i>';
+                }
+                
+                const emptyStars = 5 - Math.ceil(rating);
+                for (let i = 0; i < emptyStars; i++) {
+                    stars += '<i class="fa fa-star-o"></i>';
+                }
+                
+                return stars;
             }
+
+            // Function to render products
+            function renderProducts(productsToRender) {
+                const container = document.getElementById('productContainer');
+                const productCount = document.getElementById('productCount');
+                
+                container.innerHTML = '';
+                
+                productsToRender.forEach(product => {
+                    const productHTML = `
+                        <div class="col-4 fade-in">
+                            <a href="${product.link}"><img src="${product.image}" alt="${product.name}"></a>
+                            <a href="${product.link}"><h4>${product.name}</h4></a>
+                            <div class="rating">
+                                ${createStarRating(product.rating)}
+                            </div>
+                            <p class="price">₹ ${product.price.toFixed(2)}</p>
+                            <button class="btn add-to-cart">Add to Cart</button>
+                        </div>
+                    `;
+                    container.innerHTML += productHTML;
+                });
+                
+                // Update product count
+                productCount.textContent = `(${productsToRender.length} items)`;
+                
+                // Re-trigger fade-in animations for newly added products
+                const fadeElements = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('show');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                fadeElements.forEach(element => {
+                    observer.observe(element);
+                });
+            }
+
+            // Function to sort products
+            function sortProducts(sortBy) {
+                const container = document.getElementById('productContainer');
+                const sortSelect = document.getElementById('sortSelect');
+                
+                // Add loading state
+                container.classList.add('loading');
+                sortSelect.classList.add('sorting-active');
+                
+                // Simulate loading delay for better UX
+                setTimeout(() => {
+                    let sortedProducts = [...products];
+                    
+                    switch(sortBy) {
+                        case 'price-low':
+                            sortedProducts.sort((a, b) => a.price - b.price);
+                            break;
+                        case 'price-high':
+                            sortedProducts.sort((a, b) => b.price - a.price);
+                            break;
+                        case 'name':
+                            sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+                            break;
+                        case 'rating':
+                            sortedProducts.sort((a, b) => b.rating - a.rating);
+                            break;
+                        case 'default':
+                        default:
+                            sortedProducts.sort((a, b) => a.originalOrder - b.originalOrder);
+                            break;
+                    }
+                    
+                    renderProducts(sortedProducts);
+                    
+                    // Remove loading state
+                    container.classList.remove('loading');
+                    sortSelect.classList.remove('sorting-active');
+                }, 300);
+            }
+
+            // Initialize page
+            document.addEventListener('DOMContentLoaded', function() {
+                // Render products initially
+                renderProducts(products);
+                
+                // Add event listener to sort select
+                const sortSelect = document.getElementById('sortSelect');
+                sortSelect.addEventListener('change', function() {
+                    const sortBy = this.value;
+                    const selectedText = this.options[this.selectedIndex].text;
+                    
+                    sortProducts(sortBy);
+                    
+                    // Add visual feedback
+                    this.style.borderColor = '#ff523b';
+                    setTimeout(() => {
+                        this.style.borderColor = '';
+                    }, 1500);
+                    
+                    // Show a brief message to user
+                    const message = document.createElement('div');
+                    message.textContent = `Sorted by: ${selectedText}`;
+                    message.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: #ff523b;
+                        color: white;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        font-size: 14px;
+                        z-index: 1000;
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    `;
+                    
+                    document.body.appendChild(message);
+                    
+                    // Animate message
+                    setTimeout(() => message.style.opacity = '1', 100);
+                    setTimeout(() => {
+                        message.style.opacity = '0';
+                        setTimeout(() => message.remove(), 300);
+                    }, 2000);
+                });
+            });
         </script>
 
     </div>

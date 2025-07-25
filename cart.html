@@ -3,154 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - Redstore</title>
+    <title>Shopping Cart - Premium Store</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="premium-nav.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="cart-manager.js" defer></script>
+    <script src="common.js" defer></script>
+    <script src="premium-nav.js" defer></script>
 </head>
-<body>
-
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <img src="images/logo.png" width="125px" alt="Logo">
+<body class="premium-nav-body">
+    <!-- Premium Header -->
+    <header class="premium-header">
+        <nav class="premium-nav">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="images/logo.png" width="125px" alt="My Shopping Logo" class="logo-image">
+                    </a>
+                </div>
             </div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="product.html">Products</a></li>
-                    <li><a href="About.html">About</a></li>
-                    <li><a href="account.html">Account</a></li>
-                </ul>
-            </nav>
-            <a href="cart.html"><img src="images/cart.png" width="30px" height="30px" alt="Cart"></a>
-            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()" alt="Menu">
-        </div>
-
-        <div class="small-container cart-page">
-            <table>
-                <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/buy-1.jpg" alt="Red Printed Tshirt">
-                            <div>
-                                <p>Red Printed Tshirt</p>
-                                <small>Price: ₹ 299.00</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>₹ 299.00</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/buy-2.jpg" alt="Red Printed Tshirt">
-                            <div>
-                                <p>Red Printed Tshirt</p>
-                                <small>Price: ₹ 899.00</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>₹ 899.00</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="cart-info">
-                            <img src="images/buy-3.jpg" alt="Red Printed Tshirt">
-                            <div>
-                                <p>Red Printed Tshirt</p>
-                                <small>Price: ₹ 449.00</small>
-                                <br>
-                                <a href="">Remove</a>
-                            </div>
-                        </div>
-                    </td>
-                    <td><input type="number" value="1"></td>
-                    <td>₹ 449.00</td>
-                </tr>
-            </table>
-
-            <div class="total-price">
-                <table>
-                    <tr>
-                        <td>Subtotal</td>
-                        <td>₹ 1647.00</td>
-                    </tr>
-                    <tr>
-                        <td>Tax</td>
-                        <td>₹ 50.00</td>
-                    </tr>
-                    <tr>
-                        <td>Total</td>
-                        <td>₹ 1697.00</td>
-                    </tr>
-                </table>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="product.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="account-new.html" class="nav-link"><i class="fas fa-user"></i> Account</a></li>
+                <li><a href="cart.html" class="nav-link active cart-nav-btn" id="cartNavBtn">
+                    <i class="fas fa-shopping-cart"></i> Cart
+                    <span class="cart-counter" id="cartCounter" style="display: none;">0</span>
+                </a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-        </div>
+        </nav>
+    </header>
 
-        <div class="footer">
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="product.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+            <li><a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="account-new.html" class="nav-link"><i class="fas fa-user"></i> Account</a></li>
+            <li><a href="cart.html" class="nav-link active"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+    </div>
+
+    <!-- Premium Background Elements -->
+    <div class="bg-particles"></div>
+    <div class="bg-gradient-overlay"></div>
+    <div class="bg-animated-dots"></div>
+
+    <div class="premium-cart-page">
+        <div class="live-background"></div>
+        
+        <!-- Cart Header -->
+        <div class="cart-header">
             <div class="container">
-                <div class="row">
-                    <div class="footer-col-1">
-                        <h3>Download Our App</h3>
-                        <p>Download App for Android and iOS mobile phone.</p>
-                        <div class="app-logo">
-                            <img src="images/play-store.png" alt="Play Store">
-                            <img src="images/app-store.png" alt="App Store">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span class="current">Shopping Cart</span>
+                </nav>
+                <h1 class="cart-title">
+                    <i class="fas fa-shopping-cart"></i>
+                    Your Shopping Cart
+                    <span class="item-count" id="cartItemCount" style="display: none;">0</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- Main Cart Layout -->
+        <div class="container">
+            <div class="cart-layout">
+                <!-- Cart Items Section -->
+                <div class="cart-items-section">
+                    <div class="section-header">
+                        <h2>Cart Items</h2>
+                        <button class="clear-cart-btn" onclick="clearCart()">
+                            <i class="fas fa-trash"></i>
+                            Clear Cart
+                        </button>
+                    </div>
+
+                    <div class="cart-items-container" id="cartItemsContainer">
+                        <!-- Cart items will be dynamically loaded here -->
+                    </div>
+
+                    <!-- Empty Cart State -->
+                    <div class="empty-cart-state" id="emptyCartState" style="display: block;">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
-                    </div>
-                    <div class="footer-col-2">
-                        <img src="images/logo-white.png" alt="Logo">
-                        <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
-                    </div>
-                    <div class="footer-col-3">
-                        <h3>Useful Links</h3>
-                        <ul>
-                            <li>Coupons</li>
-                            <li>Blog Post</li>
-                            <li>Return Policy</li>
-                            <li>Join Affiliate</li>
-                        </ul>
-                    </div>
-                    <div class="footer-col-4">
-                        <h3>Follow Us</h3>
-                        <ul>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
-                            <li>Instagram</li>
-                            <li>YouTube</li>
-                        </ul>
+                        <h3>Your cart is empty</h3>
+                        <p>Looks like you haven't added anything to your cart yet.</p>
+                        <a href="product.html" class="continue-shopping-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            Continue Shopping
+                        </a>
                     </div>
                 </div>
-                <hr>
-                <p class="Copyright">Copyright 2022</p>
+
+                <!-- Cart Summary Section -->
+                <div class="cart-summary-section" style="display: none;">
+                    <div class="summary-card">
+                        <h3 class="summary-title">
+                            <i class="fas fa-receipt"></i>
+                            Order Summary
+                        </h3>
+                        
+                        <div class="promo-code-section">
+                            <h4>Have a promo code?</h4>
+                            <form class="promo-form" onsubmit="applyPromoCode(event)">
+                                <div class="promo-input-group">
+                                    <input type="text" id="promoInput" placeholder="Enter promo code" maxlength="20">
+                                    <button type="submit" class="apply-btn">Apply</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Items (<span id="totalItems">3</span>)</span>
+                                <span id="subtotalAmount">₹1,647.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span id="shippingAmount">FREE</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span id="taxAmount">₹164.70</span>
+                            </div>
+                            <div class="summary-row discount-row">
+                                <span>Discount</span>
+                                <span id="discountAmount">-₹100.00</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row total-row">
+                                <span>Total</span>
+                                <span id="totalAmount">₹1,711.70</span>
+                            </div>
+                        </div>
+
+                        <div class="checkout-section">
+                            <button class="checkout-btn" onclick="proceedToCheckout()">
+                                <i class="fas fa-lock"></i>
+                                Proceed to Secure Checkout
+                            </button>
+                            <div class="security-badges">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure Payment</span>
+                            </div>
+                        </div>
+
+                        <div class="shipping-info">
+                            <div class="shipping-item">
+                                <i class="fas fa-truck"></i>
+                                <div>
+                                    <strong>Free Shipping</strong>
+                                    <small>On orders over ₹500</small>
+                                </div>
+                            </div>
+                            <div class="shipping-item">
+                                <i class="fas fa-undo"></i>
+                                <div>
+                                    <strong>Easy Returns</strong>
+                                    <small>30-day return policy</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continue Shopping -->
+                    <div class="continue-shopping">
+                        <a href="product.html" class="continue-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            Continue Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <img src="images/logo-white.png" alt="RedStore" class="footer-logo">
+                    <p class="footer-description">Your ultimate destination for premium fashion and lifestyle products. Discover quality, style, and value in every purchase.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="account.html">My Account</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Men's Fashion</a></li>
+                    <li><a href="#">Women's Fashion</a></li>
+                    <li><a href="#">Kids' Collection</a></li>
+                    <li><a href="#">Sports & Fitness</a></li>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Home & Living</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Customer Service</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Support Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section newsletter-section">
+                <h3 class="footer-title">Stay Connected</h3>
+                <p class="newsletter-text">Subscribe to get special offers, free giveaways, and exclusive deals.</p>
+                <form class="newsletter-form">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@redstore.com</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <script>
-            var MenuItems = document.getElementById("MenuItems");
-            MenuItems.style.maxHeight = "0px";
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 RedStore. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-            function menutoggle() {
-                if (MenuItems.style.maxHeight == "0px") {
-                    MenuItems.style.maxHeight = "200px";
-                } else {
-                    MenuItems.style.maxHeight = "0px";
-                }
+    <script src="premium-nav.js"></script>
+    <script>
+        // Wait for cart manager to be loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart display
+            if (typeof cartManager !== 'undefined') {
+                cartManager.updateCartUI();
+                cartManager.updateCartCounter();
             }
-        </script>
+            
+            // Initialize background elements
+            setTimeout(() => {
+                const particles = document.querySelector('.bg-particles');
+                const gradientOverlay = document.querySelector('.bg-gradient-overlay');
+                const animatedDots = document.querySelector('.bg-animated-dots');
+                
+                if (particles) particles.style.opacity = '1';
+                if (gradientOverlay) gradientOverlay.style.opacity = '1';
+                if (animatedDots) animatedDots.style.opacity = '1';
+            }, 500);
+        });
 
-    </div>
+        // Checkout function
+        function proceedToCheckout() {
+            if (typeof cartManager !== 'undefined') {
+                if (cartManager.getItemCount() === 0) {
+                    cartManager.showNotification('Your cart is empty', 'error');
+                    return;
+                }
+                
+                cartManager.showNotification('Redirecting to secure checkout...', 'info');
+                setTimeout(() => {
+                    alert('Checkout functionality would be implemented here');
+                }, 1000);
+            }
+        }
+
+        // Add CSS animations for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>

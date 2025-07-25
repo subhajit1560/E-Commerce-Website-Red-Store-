@@ -3,30 +3,58 @@
 	<head>
 		 <meta charset="UTF-8">
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <meta name="description" content="My Shopping - Your one-stop destination for quality products at great prices">
+		 <meta name="keywords" content="shopping, ecommerce, products, online store, fashion, electronics">
+		 <meta name="author" content="My Shopping Team">
 		 <title> My Shopping | E-commerce Website Design </title>
          <link rel="stylesheet" href="style.css">
+         <link rel="stylesheet" href="premium-nav.css">
          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
          <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+         <script src="cart-manager.js" defer></script>
+         <script src="common.js" defer></script>
+         <script src="premium-nav.js" defer></script>
 		</head>
 		<body>
 
+            <!-- Premium Header -->
+            <header class="premium-header">
+                <nav class="premium-nav">
+                    <div class="nav-brand">
+                        <div class="logo-container">
+                            <a href="index.html">
+                                <img src="images/logo.png" width="125px" alt="My Shopping Logo" class="logo-image">
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="product.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+                        <li><a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="account-new.html" class="nav-link"><i class="fas fa-user"></i> Account</a></li>
+                        <li><a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                    </ul>
+                    <div class="nav-actions">
+                        <button class="cart-btn" onclick="window.location.href='cart.html'">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" style="display: none;">0</span>
+                        </button>
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <div class="hamburger" id="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
             <div class="header">
 				<div class="container">
-		             <div class="navbar">
-         	<div class="logo">
-         		<a href="index.html"><img src="images/logo.png" width="125px"></a>
-         	</div>
-         	<nav>
-         		<ul id="MenuItems">
-         			<li> <a href="index.html"> Home </a></li>
-         			<li> <a href="product.html"> Products </a></li>
-         			<li> <a href="About.html"> About </a></li>
-         			<li> <a href="account.html"> Account </a></li>
-         		</ul>
-         	</nav>
-         	<a href="cart.html"><img src="images/cart.png" width="30px" height="30px"></a>
-			 <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
-         </div>
          <div class="row">
          	<div class="col-2">
          		<h1 class="fade-in"> Give Your Workout<br> A New Style!</h1>
@@ -71,12 +99,12 @@
        						<i class="fa fa-star"> </i>
        						<i class="fa fa-star-o"></i>
        				 </div>
-       				<p>  ₹ 549.00 </p>
+       				<p class="price">₹ 549.00</p>
+                   <button class="btn add-to-cart">Add to Cart</button>
        			</div>
        			<div class="col-4">
 					<a href="product-2.html"><img src="images/product-2.jpg" class="fade-in"></a>
-					<a href="product-2.html"><h4> Red Printed T-shirt </h4></a>
-       				<h4> HRX Shoes </h4>
+					<a href="product-2.html"><h4> HRX Shoes </h4></a>
        				<div class="rating"> 
        						<i class="fa fa-star"> </i>
        						<i class="fa fa-star"> </i>
@@ -84,7 +112,8 @@
        						<i class="fa fa-star-half-o"> </i>
        						<i class="fa fa-star-o"></i>
        				 </div>
-       				<p>  ₹ 1749.00 </p>
+       				<p class="price">₹ 1749.00</p>
+                   <button class="btn add-to-cart">Add to Cart</button>
        			</div>
        			<div class="col-4">
 					<a href="product-3.html"><img src="images/product-3.jpg" class="fade-in"></a>
@@ -96,7 +125,8 @@
        						<i class="fa fa-star"> </i>
        						<i class="fa fa-star-half-o"></i>
        				 </div>
-       				<p>  ₹ 399.00 </p>
+       				<p class="price">₹ 399.00</p>
+                   <button class="btn add-to-cart">Add to Cart</button>
        			</div>
        			<div class="col-4">
 					<a href="product-4.html"><img src="images/product-4.jpg" class="fade-in"></a>
@@ -108,7 +138,8 @@
        						<i class="fa fa-star"> </i>
        						<i class="fa fa-star-o"></i>
        				 </div>
-       				<p>  ₹ 863.00 </p>
+       				<p class="price">₹ 863.00</p>
+                   <button class="btn add-to-cart">Add to Cart</button>
        			</div>
        		</div>
 			   <h2 class="title">Latest Products</h2>
@@ -123,7 +154,8 @@
 							<i class="fa fa-star"> </i>
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 					 </div>
-					<p>  ₹ 2449.00 </p>
+					<p class="price">₹ 2449.00</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
 				</div>
 				<div class="col-4">
 					<img src="images/product-6.jpg" class="fade-in">
@@ -135,7 +167,8 @@
 							<i class="fa fa-star-half-o"> </i>
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 					 </div>
-					<p>  ₹ 714.00 </p>
+					<p class="price">₹ 714.00</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
 				</div>
 				<div class="col-4">
 					<img src="images/product-7.jpg" class="fade-in">
@@ -147,7 +180,8 @@
 							<i class="fa fa-star"> </i>
 								<i class="fa fa-star-half-o" aria-hidden="true"></i>
 					 </div>
-					<p>  ₹ 249.00 </p>
+					<p class="price">₹ 249.00</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
 				</div>
 				<div class="col-4">
 					<img src="images/product-8.jpg" class="fade-in">
@@ -159,7 +193,8 @@
 							<i class="fa fa-star"> </i>
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 					 </div>
-					<p>  ₹ 7596.00 </p>
+					<p class="price">₹ 7596.00</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
 				</div>
 			</div>
 			<div class="row">
@@ -173,7 +208,8 @@
 							<i class="fa fa-star"> </i>
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 					 </div>
-					<p>  ₹ 1029.00 </p>
+					<p class="price">₹ 1029.00</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
 				</div>
 				<div class="col-4">
 					<img src="images/product-10.jpg" class="fade-in">
@@ -185,7 +221,8 @@
 							<i class="fa fa-star-half-o"> </i>
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 					 </div>
-					<p>  ₹ 569.00 </p>
+					<p class="price">₹ 569.00</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
 				</div>
 				<div class="col-4">
 					<img src="images/product-11.jpg" class="fade-in">
@@ -197,7 +234,8 @@
 							<i class="fa fa-star"> </i>
 								<i class="fa fa-star-half-o" aria-hidden="true"></i>
 					 </div>
-					<p>  ₹ 599.00 </p>
+					<p class="price">₹ 599.00</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
 				</div>
 				<div class="col-4">
 					<img src="images/product-12.jpg" class="fade-in">
@@ -209,7 +247,8 @@
 							<i class="fa fa-star"> </i>
 								<i class="fa fa-star-o" aria-hidden="true"></i>
 					 </div>
-					<p>  ₹ 1341.00 </p>
+					<p class="price">₹ 1341.00</p>
+                    <button class="btn add-to-cart">Add to Cart</button>
 				</div>
 			</div>
        	</div>
@@ -299,55 +338,49 @@
 				<div class="row">
 					<div class="footer-col-1">
 						<h3>Download Our App</h3>
-						<p>Download App for Android and ios mobile phone.</p>
+						<p>Get the best shopping experience on your mobile device. Download our app now!</p>
 						<div class="app-logo">
-							<img src="images/play-store.png">
-							<img src="images/app-store.png">
+							<img src="images/play-store.png" alt="Download from Google Play Store">
+							<img src="images/app-store.png" alt="Download from Apple App Store">
 						</div>
 					</div>
 					<div class="footer-col-2">
-						<img src="images/logo-white.png">
-						<p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
+						<h3>About My Shopping</h3>
+						<img src="images/logo-white.png" alt="My Shopping Logo">
+						<p>Your trusted partner for quality products at unbeatable prices. We're committed to making premium shopping accessible to everyone, everywhere.</p>
 					</div>
 					<div class="footer-col-3">
-						<h3>Useful Links</h3>
+						<h3>Quick Links</h3>
 						<ul>
-							<li>Coupons</li>
-							<li>Blog Post</li>
+							<li>Special Offers</li>
+							<li>New Arrivals</li>
 							<li>Return Policy</li>
+							<li>Track Your Order</li>
+							<li>Customer Support</li>
 							<li>Join Affiliate</li>
 						</ul>
 					</div>
 					<div class="footer-col-4">
-						<h3>Follow Us</h3>
+						<h3>Connect With Us</h3>
 						<ul>
 							<li>Facebook</li>
 							<li>Twitter</li>
 							<li>Instagram</li>
 							<li>YouTube</li>
+							<li>LinkedIn</li>
+							<li>TikTok</li>
 						</ul>
 					</div>
 				</div>
 				<hr>
-				<p class="Copyright">Copyright 2022</p>
+				<div class="Copyright">
+					Copyright 2024 My Shopping. All rights reserved.
+				</div>
 			</div>
 		</div>
 
 		<script>
-			var MenuItems = document.getElementById("MenuItems");
-
-			MenuItems.style.maxHeight = "0px";
-
-			function menutoggle(){
-				if(MenuItems.style.maxHeight == "0px")
-				{
-					MenuItems.style.maxHeight = "200px";
-				}
-				else
-				{
-					MenuItems.style.maxHeight = "0px";
-				}
-			}
+			// Page-specific JavaScript can go here
 		</script>
 
 		</body>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Account Experience - My Shopping</title>
+    <link rel="stylesheet" href="account-new.css">
+    <link rel="stylesheet" href="premium-nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="cart-manager.js" defer></script>
+    <script src="premium-nav.js" defer></script>
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="premium-header">
+        <nav class="premium-nav">
+            <div class="nav-brand">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="images/logo.png" width="125px" alt="My Shopping Logo" class="logo-image">
+                    </a>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="product.html" class="nav-link"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="About.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="cart-btn" onclick="window.location.href='cart.html'">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" style="display: none;">0</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content animate__animated animate__fadeInUp">
+                <h1 class="hero-title">
+                    Welcome to Your
+                    <span class="gradient-text">Premium Experience</span>
+                </h1>
+                <p class="hero-subtitle">Join millions of satisfied customers worldwide</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="2500000">0</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="99">0</div>
+                        <div class="stat-label">% Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="feature-card card-1">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure</span>
+                    </div>
+                    <div class="feature-card card-2">
+                        <i class="fas fa-rocket"></i>
+                        <span>Fast</span>
+                    </div>
+                    <div class="feature-card card-3">
+                        <i class="fas fa-heart"></i>
+                        <span>Loved</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Authentication Section -->
+        <section class="auth-section">
+            <div class="auth-container">
+                <!-- Progress Indicator -->
+                <div class="progress-indicator">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Choose</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Details</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Verify</div>
+                    </div>
+                </div>
+
+                <!-- Auth Card -->
+                <div class="auth-card">
+                    <div class="card-header">
+                        <div class="header-tabs">
+                            <button class="tab-button active" data-tab="signin" id="signinTab">
+                                <i class="fas fa-sign-in-alt"></i>
+                                <span>Sign In</span>
+                            </button>
+                            <button class="tab-button" data-tab="signup" id="signupTab">
+                                <i class="fas fa-user-plus"></i>
+                                <span>Sign Up</span>
+                            </button>
+                            <div class="tab-slider"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <!-- Sign In Form -->
+                        <form class="auth-form active" id="signinForm">
+                            <div class="form-header">
+                                <h2>Welcome Back!</h2>
+                                <p>Sign in to continue your shopping journey</p>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-container">
+                                    <input type="email" id="signin-email" required>
+                                    <label for="signin-email">Email Address</label>
+                                    <i class="fas fa-envelope input-icon"></i>
+                                    <div class="input-line"></div>
+                                </div>
+                                <div class="field-validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-container">
+                                    <input type="password" id="signin-password" required>
+                                    <label for="signin-password">Password</label>
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <button type="button" class="password-toggle" data-target="signin-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <div class="input-line"></div>
+                                </div>
+                                <div class="field-validation"></div>
+                            </div>
+
+                            <div class="form-options">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" id="remember-me">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">Remember me</span>
+                                </label>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </div>
+
+                            <button type="submit" class="submit-btn primary">
+                                <span class="btn-text">Sign In</span>
+                                <i class="fas fa-arrow-right btn-icon"></i>
+                                <div class="btn-loader"></div>
+                            </button>
+
+                            <div class="divider">
+                                <span>or continue with</span>
+                            </div>
+
+                            <div class="social-auth">
+                                <button type="button" class="social-btn google" data-provider="google">
+                                    <i class="fab fa-google"></i>
+                                    <span>Google</span>
+                                </button>
+                                <button type="button" class="social-btn facebook" data-provider="facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </button>
+                                <button type="button" class="social-btn apple" data-provider="apple">
+                                    <i class="fab fa-apple"></i>
+                                    <span>Apple</span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Sign Up Form -->
+                        <form class="auth-form" id="signupForm">
+                            <div class="form-header">
+                                <h2>Create Account</h2>
+                                <p>Join our community of happy shoppers</p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <div class="input-container">
+                                        <input type="text" id="signup-firstname" required>
+                                        <label for="signup-firstname">First Name</label>
+                                        <i class="fas fa-user input-icon"></i>
+                                        <div class="input-line"></div>
+                                    </div>
+                                    <div class="field-validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-container">
+                                        <input type="text" id="signup-lastname" required>
+                                        <label for="signup-lastname">Last Name</label>
+                                        <i class="fas fa-user input-icon"></i>
+                                        <div class="input-line"></div>
+                                    </div>
+                                    <div class="field-validation"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-container">
+                                    <input type="email" id="signup-email" required>
+                                    <label for="signup-email">Email Address</label>
+                                    <i class="fas fa-envelope input-icon"></i>
+                                    <div class="input-line"></div>
+                                </div>
+                                <div class="field-validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-container">
+                                    <input type="tel" id="signup-phone" required>
+                                    <label for="signup-phone">Phone Number</label>
+                                    <i class="fas fa-phone input-icon"></i>
+                                    <div class="input-line"></div>
+                                </div>
+                                <div class="field-validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-container">
+                                    <input type="password" id="signup-password" required>
+                                    <label for="signup-password">Password</label>
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <button type="button" class="password-toggle" data-target="signup-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <div class="input-line"></div>
+                                </div>
+                                <div class="password-strength">
+                                    <div class="strength-indicator">
+                                        <div class="strength-bar"></div>
+                                    </div>
+                                    <span class="strength-text">Password strength</span>
+                                </div>
+                                <div class="field-validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="input-container">
+                                    <input type="password" id="signup-confirm-password" required>
+                                    <label for="signup-confirm-password">Confirm Password</label>
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <div class="input-line"></div>
+                                </div>
+                                <div class="field-validation"></div>
+                            </div>
+
+                            <div class="form-options">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" id="terms-agreement" required>
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="privacy-link">Privacy Policy</a></span>
+                                </label>
+                            </div>
+
+                            <div class="form-options">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" id="newsletter-signup">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">Subscribe to our newsletter for exclusive offers</span>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="submit-btn primary">
+                                <span class="btn-text">Create Account</span>
+                                <i class="fas fa-user-plus btn-icon"></i>
+                                <div class="btn-loader"></div>
+                            </button>
+
+                            <div class="divider">
+                                <span>or sign up with</span>
+                            </div>
+
+                            <div class="social-auth">
+                                <button type="button" class="social-btn google" data-provider="google">
+                                    <i class="fab fa-google"></i>
+                                    <span>Google</span>
+                                </button>
+                                <button type="button" class="social-btn facebook" data-provider="facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                    <span>Facebook</span>
+                                </button>
+                                <button type="button" class="social-btn apple" data-provider="apple">
+                                    <i class="fab fa-apple"></i>
+                                    <span>Apple</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Features Showcase -->
+                <div class="features-showcase">
+                    <h3>Why Choose MyShopping?</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <h4>Free Shipping</h4>
+                            <p>Free delivery on orders over $50</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-undo-alt"></i>
+                            </div>
+                            <h4>Easy Returns</h4>
+                            <p>30-day hassle-free returns</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4>24/7 Support</h4>
+                            <p>Round-the-clock customer service</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h4>Quality Guarantee</h4>
+                            <p>100% authentic products only</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="modal-content">
+                <div class="success-animation">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Welcome to MyShopping!</h3>
+                <p>Your account has been created successfully.</p>
+                <button class="modal-btn" onclick="closeModal()">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+
+    <script src="account-new.js"></script>
+</body>
+</html>
